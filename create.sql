@@ -1,4 +1,6 @@
-drop database if exists python_spider;
+j
+
+  drop database if exists python_spider;
 create database python_spider;
 use python_spider;
 create table t_job(
