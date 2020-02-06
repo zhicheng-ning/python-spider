@@ -16,8 +16,7 @@ from openpyxl import Workbook
 # 获取数据
 # noinspection PyArgumentList
 def get_data(i):
-    url = "https://search.51job.com/list/030200,000000,0000,00,9,99,java%25E5%25BC%2580%25E5%258F%2591,2," + str(
-        i) + ".html"
+    url = "https://search.51job.com/list/030200,000000,0000,00,9,99,java%25E5%25BC%2580%25E5%258F%2591,2," + str(i) + ".html"
     # 创建Request对象，指定URL和请求头
 
     headers = {
@@ -142,7 +141,7 @@ def before_save_to_excel():
     # 定义全局变量
     global book, sheet
     book = Workbook()
-    sheet = book.create_sheet('广州Java招聘信息', 0)
+    sheet = book.create_sheet('广州java招聘信息', 0)
     sheet.append(['职位名', '公司名', '工作地点', '薪资', '发布时间'])
 
 

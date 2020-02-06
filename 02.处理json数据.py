@@ -9,7 +9,7 @@
 
 from urllib import request
 import json
-
+from openpyxl import Workbook
 # 获取数据
 def get_data():
 
@@ -32,9 +32,24 @@ def parse_data(html):
     result=json.loads(html)
     # print(type(result),result)
     movies=result['subjects']
-    for movie in movies:
-        print(movie['title'],movie['rate'])
+    # for movie in movies:
+    #     print(movie['title'],movie['rate'])
+    return movies
 
+# 存储数据到excel
+def save_to_excel(data):
+    # 创建工作簿Workbook
+    book=Workbook()
+    # 创建工作表
+    sheet=book.create_sheet('豆瓣热门电影评分',0)
+
+    # 向工作表中添加数据
+    sheet.append(['电影名称','电影评分'])
+    for item in data:
+        row = [item['title'], item['rate']]
+        sheet.append(row)
+    # 输出保存
+    book.save('豆瓣热门电影评分.xlsx')
 
 if __name__ == '__main__':
-    parse_data(get_data())
+    save_to_excel(parse_data(get_data()))
