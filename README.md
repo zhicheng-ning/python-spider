@@ -1,2 +1,2 @@
 # python-spider
-python爬虫练习
+python爬虫
